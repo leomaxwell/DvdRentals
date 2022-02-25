@@ -6,11 +6,9 @@ namespace DvdRentals.Models
 {
     public class RentalDvd : BaseModel
     {
-        [Key]
         [ForeignKey(nameof(Models.Rental))]
         public int RentalId { get; set; }
         
-        [Key]
         [ForeignKey(nameof(Models.Dvd))]
         public int DvdId { get; set; }
 

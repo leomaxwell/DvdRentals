@@ -8,6 +8,10 @@ namespace DvdRentals.Models
     {
         public int Id { get; set; }
 
+        [Required]
+        [ForeignKey(nameof(Models.Rental))]
+        public int RentalId { get; set; }
+
         [ForeignKey(nameof(Employee))]
         public int ReceivedById { get; set; }
 
@@ -30,9 +34,9 @@ namespace DvdRentals.Models
         public int StatusId { get; set; }
 
         //Navigation Properties
+        public Rental Rental { get; set; }
         public Employee Cashier { get; set; }
         public PaymentType PaymentType { get; set; }
         public PaymentStatus PaymentStatus { get; set; }
-        public Rental Rental { get; set; }
     }
 }
