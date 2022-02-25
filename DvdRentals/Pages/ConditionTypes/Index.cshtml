@@ -1,0 +1,86 @@
+﻿@page
+@model DvdRentals.Pages.ConditionTypes.IndexModel
+@{
+    ViewData["Title"] = "Dvd Condition";
+}
+<h3 class="display-5" style="color:#548329;">New Dvd Condition</h3>
+<hr />
+<form method="post">
+
+    <div class="card border-primary mb-3">
+        <div class="card-header">
+            <div class="row">
+            <div class="col-md-6">
+                <h4>Details</h4>
+                <small>Fields marked with and asterisk (*) are required.</small>
+                 
+            </div>
+            <div class="col-md-6">
+                <div class="tool-button" style="float:right;">
+                <a asp-page="Create" class="btn btn-outline-success">Create New</a>
+                </div>
+            </div>           
+            </div>
+        </div>
+       
+        <div class="card-body">
+           <div class="row">
+                <div class="col-md-12">
+                    @if (Model.VMs.Count < 1)
+                    {
+                            <p>No record available.</p>
+                    }
+                    else
+                    { 
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.VMs)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <a asp-page="Detail" asp-route-id="@item.Id" class="btn btn-outline-primary">Detail</a>
+                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">Edit</a>
+                                        <a asp-page="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

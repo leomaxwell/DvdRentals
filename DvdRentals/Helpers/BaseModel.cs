@@ -11,7 +11,7 @@ namespace DvdRentals.Helpers
         public DateTime CreatedAt { get; set; }
 
         [MaxLength(450)]
-        public string ModifiedBy { get; set; }
-        public DateTime ModifiedAt { get; set; }
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedAt { get; set; }
     }
 }

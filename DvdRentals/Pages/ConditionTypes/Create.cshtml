@@ -1,0 +1,71 @@
+﻿@page
+@model DvdRentals.Pages.ConditionTypes.CreateModel
+@{
+    ViewData["Title"] = "Dvd Condition";
+}
+<h3 class="display-5" style="color:#548329;">New Dvd Condition</h3>
+<hr />
+<form method="post">
+
+    <div class="card border-primary mb-3">
+        <div class="card-header">
+            <h4>Details</h4>
+            <small>Fields marked with and asterisk (*) are required.</small>
+        </div>
+        <div class="card-body">
+           <div class="row">
+                <div class="col-md-8 offset-2">
+                    @if (Model.Message != null)
+                    {
+                        <div class="alert alert-dismissible alert-primary">
+                          <strong>Info!</strong> 
+                          @Model.Message
+                        </div>
+                    }
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row">
+                      <label asp-for="Vm.Name" class="col-md-3 control-label">Name*:</label>
+                      <div class="col-md-9">
+                        <input asp-for="Vm.Name" type="text" class="form-control" placeholder="Enter Name">
+                        <span asp-validation-for="Vm.Name" class="text-danger"></span>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                      <label asp-for="Vm.Description" class="col-md-3 control-label">Description:</label>
+                      <div class="col-md-9">
+                        <textarea asp-for="Vm.Description" class="form-control" rows="3" placeholder="Enter Description"></textarea>
+                        <span asp-validation-for="Vm.Description" class="text-danger"></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-8 offset-2">
+                    <div class="form-group row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a asp-page="Index" class="btn btn-secondary btn-block">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
